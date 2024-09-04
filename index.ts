@@ -8,8 +8,8 @@ app.use(express.json()); //middleware
 
 // Endpoints
 
-//Get ALL surgeries
-app.get('api/cirugia', (req: Request, res: Response) => {
+//Get surgeons
+app.get('api/surgeons', (req: Request, res: Response) => {
     // Codigo para requestiar datos del sqlite
 });
 
