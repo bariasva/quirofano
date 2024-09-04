@@ -1,4 +1,8 @@
 node_modules/
+<<<<<<< HEAD
 /database.sqlite
 /dist/index.js
 /src/index.ts
+=======
+/database.sqlite
+>>>>>>> 93b8846 (Revert "chore: Update .gitignore and package.json, add database setup script and express implementation")
