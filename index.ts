@@ -6,4 +6,13 @@ let secuence = 0;
 
 app.use(express.json()); //middleware
 
+// Endpoints
+
+//Get ALL surgeries
+app.get('api/cirugia', (req: Request, res: Response) => {
+    // Codigo para requestiar datos del sqlite
+});
+
+
+
 app.listen(port, () => console.log(`This server is running at port ${port}`));
