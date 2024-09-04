@@ -2,7 +2,7 @@ import Database from "better-sqlite3";
 
 const db = new Database("./database.sqlite");
 
-db.exec(`
+/* db.exec(`
   CREATE TABLE IF NOT EXISTS Surgeon (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     Name TEXT NOT NULL,
@@ -38,30 +38,27 @@ db.exec(`
     Diagnosis TEXT,
     PriorityStatus TEXT CHECK(PriorityStatus IN ('Low', 'Medium', 'High'))
   );
-`);
+`); */
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS Surgery (
     SurgeryID INTEGER PRIMARY KEY AUTOINCREMENT,
-    PatientID INTEGER NOT NULL,
-    SurgeonID INTEGER NOT NULL,
+    PatientID TEXT NOT NULL,
+    SurgeonID TEXT NOT NULL,
     StaffList TEXT,
     StartTime DATETIME,
     EndTime DATETIME,
     TypeOfSurgery TEXT NOT NULL,
-    Status TEXT CHECK(Status IN ('Scheduled', 'In Progress', 'Completed', 'Cancelled')) NOT NULL,
-    FOREIGN KEY (PatientID) REFERENCES Patient(ID),
-    FOREIGN KEY (SurgeonID) REFERENCES Surgeon(ID)
+    Status TEXT CHECK(Status IN ('Scheduled', 'In Progress', 'Completed', 'Cancelled')) NOT NULL
   );
 `);
 db.exec(`
   CREATE TABLE IF NOT EXISTS WaitingList (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    PatientID INTEGER NOT NULL,
+    PatientID TEXT NOT NULL,
     ReasonForWaiting TEXT NOT NULL,
     DateAdded DATE NOT NULL,
-    PriorityLevel TEXT CHECK(PriorityLevel IN ('Low', 'Medium', 'High')) NOT NULL,
-    FOREIGN KEY (PatientID) REFERENCES Patient(ID)
+    PriorityLevel TEXT CHECK(PriorityLevel IN ('Low', 'Medium', 'High')) NOT NULL
   );
 `);
 
