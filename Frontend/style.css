@@ -1,0 +1,9 @@
+.form-container {
+    max-width: 800px; /* Ajusta el ancho máximo del contenedor */
+    margin: 10 auto; /* Centra el contenedor horizontalmente */
+    padding: 20px; /* Espacio interno */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    background-color: #fff; /* Fondo blanco */
+}
+
