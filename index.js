@@ -39,4 +39,17 @@ app.get('/api/waitinglist', (req, res) => {
     res.json(results);
     db.close();
 });
+// Insert a new surgery to waiting list
+app.post('api/waitinglist', (req, res) => {
+    const { ID, PatientID, ReasonForWaiting, DateAdded, PriorityLevel } = req.body;
+    const db = new better_sqlite3_1.default('database.sqlite');
+    const insertSurgery = db.prepare(`INSERT INTO WaitingList (ID, PatientID, ReasonForWaiting, 
+        DateAdded, PriorityLevel) VALUES (?, ?, ?, ?, ?)`);
+    const results = insertSurgery.run(ID, PatientID, ReasonForWaiting, DateAdded, PriorityLevel);
+    res.status(201).json({
+        msg: "Surgery added succesfully",
+        data: results
+    });
+    db.close();
+});
 app.listen(port, () => console.log(`This server is running at port ${port}`));
