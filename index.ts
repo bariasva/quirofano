@@ -7,7 +7,7 @@ const port = 3000;
 //middleware
 app.use(express.json()); 
 
-// Endpoints
+// Endpoints Cirugia
 
 //Get cirugia
 
@@ -15,7 +15,7 @@ app.get('/api/cirugia', (req: Request, res: Response) => {
     // Codigo para requestiar datos del sqlite
     const db = new Database('database.sqlite');
 
-    const getSurgery = db.prepare('SELECT * FROM WaitingList');
+    const getSurgery = db.prepare('SELECT * FROM Surgery');
     const results = getSurgery.all();
 
     res.json(results);
@@ -31,9 +31,38 @@ app.post('/api/cirugia', (req: Request, res: Response) => {
 
     const addSurgery = db.prepare(`INSERT INTO Surgery (SurgeryID, PatientName, SurgeonName, StaffList,
         StartTime, EndTime, TypeOfSurgery, Status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`);
-    const results = addSurgery.all(SurgeryID, PatientName, SurgeonName, StaffList, StartTime, EndTime, TypeOfSurgery, Status);
+    const results = addSurgery.run(SurgeryID, PatientName, SurgeonName, StaffList, StartTime, EndTime, TypeOfSurgery, Status);
 
-    res.status(201).json(results);
+    res.status(201).json({data: results});
+    db.close();
+});
+
+// EndPoints WaitingList
+
+// Get WaitingList
+app.get('/api/waitinglist', (req: Request, res: Response) => {
+    const db = new Database('database.sqlite');
+
+    const getWaitingList = db.prepare('SELECT * FROM WaitingList');
+    const results = getWaitingList.all();
+
+    res.json(results);
+    db.close();
+});
+
+// Insert a new surgery to waiting list
+app.post('api/waitinglist', (req: Request, res: Response) => {
+    const {ID, PatientID, ReasonForWaiting, DateAdded, PriorityLevel} = req.body;
+    const db = new Database('database.sqlite');
+
+    const insertSurgery = db.prepare(`INSERT INTO WaitingList (ID, PatientID, ReasonForWaiting, 
+        DateAdded, PriorityLevel) VALUES (?, ?, ?, ?, ?)`);
+    const results = insertSurgery.run(ID, PatientID, ReasonForWaiting, DateAdded, PriorityLevel);
+
+    res.status(201).json({
+        msg: "Surgery added succesfully",
+        data: results
+    });
     db.close();
 });
 
