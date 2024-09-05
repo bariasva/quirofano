@@ -1,19 +1,8 @@
 import express, { Request, Response } from "express";
-import { Database, OPEN_READWRITE } from 'sqlite3';
+import Database from 'better-sqlite3';
 
 const app = express();
-const sqlite3 = require('sqlite3').verbose();
 const port = 3000;
-let secuence = 0;
-
-// Connect to SQLite database
-const db = new Database('./my-database.db', OPEN_READWRITE, (err) => {
-    if (err) {
-        console.error('Error connecting to the database:', err.message);
-    } else {
-        console.log('Connected to the SQLite database.');
-    }
-});
 
 //middleware
 app.use(express.json()); 
@@ -21,26 +10,31 @@ app.use(express.json());
 // Endpoints
 
 //Get cirugia
-app.get('api/cirugia', (req: Request, res: Response) => {
+
+app.get('/api/cirugia', (req: Request, res: Response) => {
     // Codigo para requestiar datos del sqlite
-    const sql ='SELECT * FROM cirugia'
-    db.all(sql, [], (err, rows) => {
-        if(err) {
-            res.status(400).json({error: err.message});
-            return;
-        }
-        res.json({
-            message: 'Success',
-            data: rows
-        });
-    });
+    const db = new Database('database.sqlite');
+
+    const getSurgery = db.prepare('SELECT * FROM WaitingList');
+    const results = getSurgery.all();
+
+    res.json(results);
+    db.close();
 });
+
 
 // Post cirugia
-app.post('api/cirugia', (req: Request, res: Response) => {
+app.post('/api/cirugia', (req: Request, res: Response) => {
     // Codigo para agregar una cirugia
-    
-});
+    const {SurgeryID, PatientName, SurgeonName, StaffList, StartTime, EndTime, TypeOfSurgery, Status } = req.body;
+    const db = new Database('database.sqlite');
 
+    const addSurgery = db.prepare(`INSERT INTO Surgery (SurgeryID, PatientName, SurgeonName, StaffList,
+        StartTime, EndTime, TypeOfSurgery, Status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`);
+    const results = addSurgery.all(SurgeryID, PatientName, SurgeonName, StaffList, StartTime, EndTime, TypeOfSurgery, Status);
+
+    res.status(201).json(results);
+    db.close();
+});
 
 app.listen(port, () => console.log(`This server is running at port ${port}`));
