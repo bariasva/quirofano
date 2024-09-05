@@ -4,11 +4,10 @@
   "description": "��#\u0000 \u0000q\u0000u\u0000i\u0000r\u0000o\u0000f\u0000a\u0000n\u0000o\u0000\r\u0000 \u0000",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx ts-node-dev index.ts --watch"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "auhor": "",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "better-sqlite3": "^11.2.1",
