@@ -11,44 +11,42 @@
   </head>
   <body>
     <!-- Navbar  -->
-    <nav
-      class="navbar navbar-expand-lg bg-primary"
-      data-bs-theme="blue"
-      id="nav"
-    >
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/quirofano/Frontend/index.html"
-          >Pantalla 1</a
-        >
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/quirofano/Frontend/index2.html"
-          >Pantalla 2</a
-        >
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-    </nav>
+    <section class="bg-primary text-light p-1">
+      <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container-fluid">
+          <a
+            class="navbar-brand"
+            href="/quirofano/Frontend/index.html"
+            alt="Brand Logo"
+          ></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" href="/quirofano/Frontend/index.html"
+                  ><h2>Pantalla 1</h2></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/quirofano/Frontend/index2.html"
+                  ><h2>Pantalla 2</h2></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
     <!-- campo nombre del paciente -->
     <section class="bg-light text-dark p-5 text-left">
       <div class="form-container">
@@ -249,6 +247,7 @@
           </div>
 
           <script src="/quirofano/Frontend/index.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
           <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
         </form>
       </div>
