@@ -2,3 +2,4 @@ node_modules/
 /database.sqlite
 /src/index.ts
 /dist/index.js
+database.sqlite
