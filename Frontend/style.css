@@ -17,11 +17,9 @@
 }
 
 .nav-link {
-    font-size: 1.2rem;
     font-weight: 500;
     color: white;
     padding: 10px 20px;
-    text-transform: uppercase;
     border-radius: 10px;
     transition: background-color 0.3s ease-in-out;
     margin: 0 100px;
@@ -37,3 +35,14 @@ ul.navbar-nav {
     display: flex;
     gap: 20px;
 }
+.bg-primary-custom {
+    background-color: #0d6efd; /* Example primary color, adjust as needed */
+}
+.navbar-brand img {
+    max-height: 40px; /* Adjust the max height to fit the navbar */
+    width: auto; /* Maintain aspect ratio */
+}
+.navbar-nav .nav-link {
+    font-size: 1.20rem; /* Adjust the size as needed */
+  }
+
