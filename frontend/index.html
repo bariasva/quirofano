@@ -3,7 +3,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quirofano</title>
-    <link rel="stylesheet" href="/Frontend/style.css" />
+    <link rel="stylesheet" href="./style.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -14,11 +14,7 @@
     <section class="bg-primary text-light p-1">
       <nav class="navbar navbar-expand-lg navbar-light bg-primary">
         <div class="container-fluid">
-          <a
-            class="navbar-brand"
-            href="/Frontend/index.html"
-            alt="Brand Logo"
-          ></a>
+          <a class="navbar-brand" href="./index.html" alt="Brand Logo"></a>
           <button
             class="navbar-toggler"
             type="button"
@@ -33,13 +29,13 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" href="/Frontend/index.html"
-                  ><h2>Pantalla 1</h2></a
+                <a class="nav-link active" href="./index.html"
+                  ><h2>Quirofano</h2></a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/Frontend/index2.html"
-                  ><h2>Pantalla 2</h2></a
+                <a class="nav-link" href="./index2.html"
+                  ><h2>Lista espera</h2></a
                 >
               </li>
             </ul>
@@ -50,7 +46,7 @@
     <!-- campo nombre del paciente -->
     <section class="bg-light text-dark p-5 text-left">
       <div class="form-container">
-        <form class="row g-3 was-validated" method="post" action="/api/cirugia">
+        <form class="row g-3 was-validated" id="dataForm">
           <div class="col-md-12">
             <h4>Nombre del Paciente</h4>
             <input
@@ -79,63 +75,20 @@
               <option value="Dr. Ezequiel Santana">Dr. Ezequiel Santana</option>
             </select>
           </div>
-
           <div class="col-md-12">
-            <h4>Status de la cirugía</h4>
-            <div class="form-check form-check-inline">
-              <input
-                type="radio"
-                class="form-check-input"
-                name="surgeryStatus"
-                id="statusProgramada"
-                value="Programada"
-              />
-              <label class="form-check-label" for="statusProgramada"
-                >Programada</label
-              >
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input
-                type="radio"
-                class="form-check-input"
-                name="surgeryStatus"
-                id="statusInProgress"
-                value="In Progress"
-                disabled
-              />
-              <label class="form-check-label" for="statusInProgress"
-                >En progreso</label
-              >
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input
-                type="radio"
-                class="form-check-input"
-                name="surgeryStatus"
-                id="statusCompleted"
-                value="Completed"
-                disabled
-              />
-              <label class="form-check-label" for="statusCompleted"
-                >Completada</label
-              >
-            </div>
-
-            <div class="form-check form-check-inline">
-              <input
-                type="radio"
-                class="form-check-input"
-                name="surgeryStatus"
-                id="statusCancelled"
-                value="Cancelled"
-                disabled
-              />
-              <label class="form-check-label" for="statusCancelled"
-                >Cancelada</label
-              >
-            </div>
+            <h4>Status de cirugía</h4>
+            <select
+              class="form-select"
+              name="Status"
+              required
+              aria-label="select example"
+            >
+              <option value="">Seleccione el status</option>
+              <option value="Scheduled">Programada</option>
+              <option value="In Progress">En progreso</option>
+              <option value="Completed">Completada</option>
+              <option value="Cancelled">Cancelada</option>
+            </select>
           </div>
 
           <div class="col-md-12">
@@ -244,11 +197,67 @@
             >
               Enviar
             </button>
+            <h2>All Data</h2>
+            <table id="dataTable" border="1" class="table">
+              <thead>
+                <tr>
+                  <th>Paciente</th>
+                  <th>Cirujano</th>
+                  <th>Staff</th>
+                  <th>Hora de Inicio</th>
+                  <th>Hora de Finalización</th>
+                  <th>Tipo de cirugía</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Data will be dynamically inserted here -->
+              </tbody>
+            </table>
           </div>
 
-          <script src="/Frontend/index.js"></script>
+          <script src="/dist/index.js"></script>
           <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
           <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+          <script>
+            document
+              .getElementById("dataForm")
+              .addEventListener("submit", async (event) => {
+                event.preventDefault();
+
+                const formData = new FormData(event.target);
+                const data = Object.fromEntries(formData.entries());
+
+                // Insert data via POST request
+                const response = await fetch("/api/cirugia", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(data),
+                });
+
+                if (response.ok) {
+                  event.target.reset(); // Clear the form after successful submission
+                  loadTableData(); // Load the updated table data
+                }
+              });
+
+            async function loadTableData() {
+              const response = await fetch("/api/cirugia");
+              const data = await response.json();
+
+              const tableBody = document.querySelector("#dataTable tbody");
+              tableBody.innerHTML = ""; // Clear existing rows
+
+              data.forEach((row) => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `<td>${row.PatientName}</td><td>${row.SurgeonName}</td><td>${row.StaffList}</td><td>${row.StartTime}</td><td>${row.EndTime}</td><td>${row.TypeOfSurgery}</td><td>${row.Status}</td>`;
+                tableBody.appendChild(tr);
+              });
+
+              loadTableData();
+              window.onload = loadTableData;
+            }
+          </script>
         </form>
       </div>
     </section>

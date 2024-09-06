@@ -3,13 +3,18 @@ import Database from "better-sqlite3";
 
 const app = express();
 const port = 3000;
+const bodyParser = require("body-parser");
+const path = require("path");
 
 //middleware
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "frontend")));
 
 // Endpoints Cirugia
 
 //Get cirugia
+app.use(express.static("frontend"));
 
 app.get("/api/cirugia", (req: Request, res: Response) => {
   // Codigo para requestiar datos del sqlite
@@ -19,7 +24,7 @@ app.get("/api/cirugia", (req: Request, res: Response) => {
   const results = getSurgery.all();
 
   res.json(results);
-  db.close();
+  //   db.close();
 });
 
 // Post cirugia

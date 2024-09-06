@@ -27,3 +27,4 @@ db.exec(`
   );
 `);
 db.close();
+//# sourceMappingURL=database.js.map
