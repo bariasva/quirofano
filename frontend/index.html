@@ -50,41 +50,48 @@
     <!-- campo nombre del paciente -->
     <section class="bg-light text-dark p-5 text-left">
       <div class="form-container">
-        <form class="row g-3 was-validated">
+        <form class="row g-3 was-validated" method="post" action="/api/cirugia">
           <div class="col-md-12">
             <h4>Nombre del Paciente</h4>
             <input
               type="text"
               class="form-control"
-              id="validationID"
+              name="PatientName"
               required
             />
           </div>
 
           <div class="col-md-12">
             <h4>Medico cabecera</h4>
-            <select class="form-select" required aria-label="select example">
+            <select
+              class="form-select"
+              name="SurgeonName"
+              required
+              aria-label="select example"
+            >
               <option value="">Seleccione el Médico Cabecera</option>
-              <option value="1">Dr. Emilio Paredes</option>
-              <option value="2">Dra. Sofia Morgana</option>
-              <option value="3">Dr. Julian Fernández</option>
-              <option value="4">Dra. Guillermina Smith</option>
-              <option value="5">Dr. Ezequiel Santana</option>
+              <option value="Dr. Emilio Paredes">Dr. Emilio Paredes</option>
+              <option value="Dra. Sofia Morgana">Dra. Sofia Morgana</option>
+              <option value="Dr. Julian Fernández">Dr. Julian Fernández</option>
+              <option value="Dra. Guillermina Smith">
+                Dra. Guillermina Smith
+              </option>
+              <option value="Dr. Ezequiel Santana">Dr. Ezequiel Santana</option>
             </select>
           </div>
 
           <div class="col-md-12">
-            <h4>Quirofano a Utilizar</h4>
+            <h4>Status de la cirugía</h4>
             <div class="form-check form-check-inline">
               <input
                 type="radio"
                 class="form-check-input"
-                id="quirofano1"
-                name="quirofano"
-                required
+                name="surgeryStatus"
+                id="statusProgramada"
+                value="Programada"
               />
-              <label class="form-check-label" for="anesthesia1"
-                >Quirofano 1</label
+              <label class="form-check-label" for="statusProgramada"
+                >Programada</label
               >
             </div>
 
@@ -92,12 +99,13 @@
               <input
                 type="radio"
                 class="form-check-input"
-                id="quirofano1"
-                name="quirofano"
-                required
+                name="surgeryStatus"
+                id="statusInProgress"
+                value="In Progress"
+                disabled
               />
-              <label class="form-check-label" for="anesthesia1"
-                >Quirofano 2</label
+              <label class="form-check-label" for="statusInProgress"
+                >En progreso</label
               >
             </div>
 
@@ -105,103 +113,95 @@
               <input
                 type="radio"
                 class="form-check-input"
-                id="quirofano1"
-                name="quirofano"
-                required
+                name="surgeryStatus"
+                id="statusCompleted"
+                value="Completed"
+                disabled
               />
-              <label class="form-check-label" for="anesthesia1"
-                >Quirofano 3</label
+              <label class="form-check-label" for="statusCompleted"
+                >Completada</label
+              >
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input
+                type="radio"
+                class="form-check-input"
+                name="surgeryStatus"
+                id="statusCancelled"
+                value="Cancelled"
+                disabled
+              />
+              <label class="form-check-label" for="statusCancelled"
+                >Cancelada</label
               >
             </div>
           </div>
 
           <div class="col-md-12">
             <h4>Tipo de Cirugía</h4>
-            <select class="form-select" required aria-label="select example">
+            <select
+              class="form-select"
+              name="TypeOfSurgery"
+              required
+              aria-label="select example"
+            >
               <option value="">Seleccione el Tipo de Cirugía</option>
-              <option value="1">Cirugía Mayor</option>
-              <option value="2">Cirugía Menor</option>
-              <option value="3">Cirugía Electiva</option>
-              <option value="4">Cirugía de Emergencia</option>
+              <option value="Cirugía Mayor">Cirugía Mayor</option>
+              <option value="Cirugía Menor">Cirugía Menor</option>
+              <option value="Cirugía Electiva">Cirugía Electiva</option>
+              <option value="Cirugía de Emergencia">
+                Cirugía de Emergencia
+              </option>
             </select>
           </div>
 
           <div class="col-md-12">
-            <h4>Enfermeros</h4>
-            <div class="form-check form-check-inline col-md-4">
-              <input
-                type="radio"
-                class="form-check-input"
-                id="anesthesia1"
-                name="anesthesia"
-                required
-              />
-              <label class="form-check-label" for="anesthesia1"
-                >Manuel Galva (Anestesia)</label
-              >
-            </div>
-            <div class="form-check form-check-inline col-md-4">
-              <input
-                type="radio"
-                class="form-check-input"
-                id="anesthesia2"
-                name="anesthesia"
-                required
-              />
-              <label class="form-check-label" for="anesthesia2"
-                >Rosa Duarte (Anestesia)</label
-              >
-            </div>
+            <h4>Anestesia</h4>
+            <select
+              class="form-select"
+              name="StaffList"
+              aria-label="select example"
+              required
+            >
+              <option value="">Seleccione Anestesiólogo</option>
+              <option value="Manuel Galva">Manuel Galva (Anestesia)</option>
+              <option value="Rosa Duarte">Rosa Duarte (Anestesia)</option>
+            </select>
+          </div>
 
-            <div class="form-check form-check-inline col-md-4">
-              <input
-                type="radio"
-                class="form-check-input"
-                id="circulante1"
-                name="circulante"
-                required
-              />
-              <label class="form-check-label" for="circulante1"
-                >Julio Guerrero (Circulante)</label
-              >
-            </div>
-            <div class="form-check form-check-inline col-md-4">
-              <input
-                type="radio"
-                class="form-check-input"
-                id="circulante2"
-                name="circulante"
-                required
-              />
-              <label class="form-check-label" for="circulante2"
-                >Sabrina Iglesias (Circulante)</label
-              >
-            </div>
+          <div class="col-md-12">
+            <h4>Circulante</h4>
+            <select
+              class="form-select"
+              name="circulante"
+              aria-label="select example"
+              required
+            >
+              <option value="">Seleccione Circulante</option>
+              <option value="Julio Guerrero">
+                Julio Guerrero (Circulante)
+              </option>
+              <option value="Sabrina Iglesias">
+                Sabrina Iglesias (Circulante)
+              </option>
+            </select>
+          </div>
 
-            <div class="form-check form-check-inline col-md-4">
-              <input
-                type="radio"
-                class="form-check-input"
-                id="instrumentista1"
-                name="instrumentista"
-                required
-              />
-              <label class="form-check-label" for="instrumentista1"
-                >Edwin Bautista (Instrumentista)</label
-              >
-            </div>
-            <div class="form-check form-check-inline col-md-4">
-              <input
-                type="radio"
-                class="form-check-input"
-                id="instrumentista2"
-                name="instrumentista"
-                required
-              />
-              <label class="form-check-label" for="instrumentista2"
-                >María Pérez (Instrumentista)</label
-              >
-            </div>
+          <div class="col-md-12">
+            <h4>Instrumentista</h4>
+            <select
+              class="form-select"
+              name="instrumentista"
+              aria-label="select example"
+              required
+            >
+              <option value="">Seleccione Instrumentista</option>
+              <option value="Edwin Bautista">
+                Edwin Bautista (Instrumentista)
+              </option>
+              <option value="María Pérez">María Pérez (Instrumentista)</option>
+            </select>
           </div>
 
           <div class="col-md-12">
@@ -220,7 +220,7 @@
             <input
               type="time"
               id="start-time"
-              name="start-time"
+              name="StartTime"
               class="form-control"
               required
             />
@@ -230,7 +230,7 @@
             <input
               type="time"
               id="end-time"
-              name="end-time"
+              name="EndTime"
               class="form-control"
               required
             />

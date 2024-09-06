@@ -45,7 +45,7 @@ app.post("/api/waitinglist", (req, res) => {
     const db = new better_sqlite3_1.default("database.sqlite");
     const insertSurgery = db.prepare(`INSERT INTO WaitingList (ID, PatientID, ReasonForWaiting, 
         DateAdded, PriorityLevel) VALUES (?, ?, ?, ?, ?)`);
-    const results = insertSurgery.run(ID, PatientID, ReasonForWaiting, DateAdded, PriorityLevel);
+    const results = insertSurgery.run(PatientID, ReasonForWaiting, DateAdded, PriorityLevel);
     res.status(201).json({
         msg: "Surgery added succesfully",
         data: results,
