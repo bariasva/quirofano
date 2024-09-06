@@ -20,7 +20,7 @@ db.exec(`
 db.exec(`
   CREATE TABLE IF NOT EXISTS WaitingList (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    PatientID TEXT NOT NULL,
+    PatientName TEXT NOT NULL,
     ReasonForWaiting TEXT NOT NULL,
     DateAdded DATE NOT NULL,
     PriorityLevel TEXT CHECK(PriorityLevel IN ('Low', 'Medium', 'High')) NOT NULL

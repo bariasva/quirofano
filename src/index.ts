@@ -75,15 +75,15 @@ app.get("/api/waitinglist", (req: Request, res: Response) => {
 
 // Insert a new surgery to waiting list
 app.post("/api/waitinglist", (req: Request, res: Response) => {
-  const { ID, PatientID, ReasonForWaiting, DateAdded, PriorityLevel } =
+  const {PatientName, ReasonForWaiting, DateAdded, PriorityLevel } =
     req.body;
   const db = new Database("database.sqlite");
 
   const insertSurgery =
-    db.prepare(`INSERT INTO WaitingList (ID, PatientID, ReasonForWaiting, 
-        DateAdded, PriorityLevel) VALUES (?, ?, ?, ?, ?)`);
+    db.prepare(`INSERT INTO WaitingList (PatientName, ReasonForWaiting, 
+        DateAdded, PriorityLevel) VALUES (?, ?, ?, ?)`);
   const results = insertSurgery.run(
-    PatientID,
+    PatientName,
     ReasonForWaiting,
     DateAdded,
     PriorityLevel

@@ -35,7 +35,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./index2.html"
-                  ><h2>Lista espera</h2></a
+                  ><h2>Lista de Espera</h2></a
                 >
               </li>
             </ul>
@@ -216,7 +216,12 @@
             </table>
           </div>
 
-          <script src="/dist/index.js"></script>
+          
+        </form>
+      </div>
+    </section>
+
+    <script src="/dist/index.js"></script>
           <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
           <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
           <script>
@@ -253,13 +258,9 @@
                 tr.innerHTML = `<td>${row.PatientName}</td><td>${row.SurgeonName}</td><td>${row.StaffList}</td><td>${row.StartTime}</td><td>${row.EndTime}</td><td>${row.TypeOfSurgery}</td><td>${row.Status}</td>`;
                 tableBody.appendChild(tr);
               });
-
-              loadTableData();
-              window.onload = loadTableData;
             }
-          </script>
-        </form>
-      </div>
-    </section>
+            loadTableData();
+            window.onload = loadTableData;
+      </script>
   </body>
 </html>
