@@ -8,26 +8,24 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="blue" id="nav">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/quirofano/Frontend/index.html">Pantalla 1</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+     <nav class="navbar navbar-expand-lg" id="nav">
+        <div class="container-fluid justify-content-center">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/quirofano/Frontend/index.html" style="color: white;">Pantalla 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/quirofano/Frontend/index2.html" style="color: white;">Pantalla 2</a>
+            </li>
+          </ul>
         </div>
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/quirofano/Frontend/index2.html">Pantalla 2</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-    </nav>
-    
+      </nav>
+      
     <div class="form-container">
-        <form class="row g-3 was-validated">
+        <form class="row g-3 was-validated" id="formPag1" action="post">
             <div class="col-md-12">
                 <h4>Nombre del Paciente</h4>
-                <input type="text" class="form-control" id="validationID" required>
+                <input type="text" class="form-control" id="validationIDPag1" required>
             </div>
 
             <div class="col-md-12">
@@ -46,17 +44,17 @@
                 <h4>Quirofano a Utilizar</h4>
                 <div class="form-check form-check-inline">
                     <input type="radio" class="form-check-input" id="quirofano1" name="quirofano" required>
-                    <label class="form-check-label" for="anesthesia1">Quirofano 1</label>
+                    <label class="form-check-label" for="quirofano1">Quirofano 1</label>
                 </div>
                 
                 <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input" id="quirofano1" name="quirofano" required>
-                    <label class="form-check-label" for="anesthesia1">Quirofano 2</label>
+                    <input type="radio" class="form-check-input" id="quirofano2" name="quirofano" required>
+                    <label class="form-check-label" for="quirofano2">Quirofano 2</label>
                 </div>
 
                 <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input" id="quirofano1" name="quirofano" required>
-                    <label class="form-check-label" for="anesthesia1">Quirofano 3</label>
+                    <input type="radio" class="form-check-input" id="quirofano3" name="quirofano" required>
+                    <label class="form-check-label" for="quirofano3">Quirofano 3</label>
                 </div>
             </div>
             
@@ -121,10 +119,11 @@
             <div class="col-md-12">
                 <button type="submit" class="btn btn-outline-primary col-md-6" style="margin-left: 25%;">Enviar</button>
             </div>
+        </form>
     </div>
     
-
-    <script src="/quirofano/Frontend/index.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="/quirofano/Frontend/index.js"></script>
 </body>
 </html>
