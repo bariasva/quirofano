@@ -1,6 +1,7 @@
 
 document.getElementById("formPag2").addEventListener("submit", function(event) {
     event.preventDefault();
+    console.log("Se mandó");
     const nombrePaciente = document.getElementById("validationIDPag2").value;
 
     if (nombrePaciente.length < 3 || nombrePaciente.length > 50) {
