@@ -8,8 +8,8 @@ const db = new better_sqlite3_1.default("./database.sqlite");
 db.exec(`
   CREATE TABLE IF NOT EXISTS Surgery (
     SurgeryID INTEGER PRIMARY KEY AUTOINCREMENT,
-    PatientID TEXT NOT NULL,
-    SurgeonID TEXT NOT NULL,
+    PatientName TEXT NOT NULL,
+    SurgeonName TEXT NOT NULL,
     StaffList TEXT,
     StartTime DATETIME,
     EndTime DATETIME,

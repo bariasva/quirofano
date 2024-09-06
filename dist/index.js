@@ -7,39 +7,49 @@ const express_1 = __importDefault(require("express"));
 const better_sqlite3_1 = __importDefault(require("better-sqlite3"));
 const app = (0, express_1.default)();
 const port = 3000;
-let secuence = 0;
-app.use(express_1.default.json()); //middleware
-// Endpoints
-//Get ALL surgeries
+//middleware
+app.use(express_1.default.json());
+// Endpoints Cirugia
+//Get cirugia
 app.get("/api/cirugia", (req, res) => {
     // Codigo para requestiar datos del sqlite
     const db = new better_sqlite3_1.default("database.sqlite");
-    const statement = db.prepare("SELECT * FROM Surgery");
-    const rows = statement.all();
-    if (rows) {
-        res.json(rows);
-    }
-    else {
-        res.status(500).json({ error: "Internal Server Error" });
-    }
+    const getSurgery = db.prepare("SELECT * FROM Surgery");
+    const results = getSurgery.all();
+    res.json(results);
     db.close();
 });
-// Create a new surgery record
+// Post cirugia
 app.post("/api/cirugia", (req, res) => {
-    const { name, date, surgeon } = req.body;
-    if (!name || !date || !surgeon) {
-        res.status(400).json({ error: "Missing required fields" });
-        return;
-    }
+    // Codigo para agregar una cirugia
+    const { SurgeryID, PatientName, SurgeonName, StaffList, StartTime, EndTime, TypeOfSurgery, Status, } = req.body;
     const db = new better_sqlite3_1.default("database.sqlite");
-    const statement = db.prepare("INSERT INTO surgeries (name, date, surgeon) VALUES (?, ?, ?)");
-    const result = statement.run(name, date, surgeon);
-    if (result.changes > 0) {
-        res.status(201).json({ message: "Surgery record created successfully" });
-    }
-    else {
-        res.status(500).json({ error: "Failed to create surgery record" });
-    }
+    const addSurgery = db.prepare(`INSERT INTO Surgery (SurgeryID, PatientName, SurgeonName, StaffList,
+        StartTime, EndTime, TypeOfSurgery, Status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`);
+    const results = addSurgery.run(SurgeryID, PatientName, SurgeonName, StaffList, StartTime, EndTime, TypeOfSurgery, Status);
+    res.status(201).json({ data: results });
+    db.close();
+});
+// EndPoints WaitingList
+// Get WaitingList
+app.get("/api/waitinglist", (req, res) => {
+    const db = new better_sqlite3_1.default("database.sqlite");
+    const getWaitingList = db.prepare("SELECT * FROM WaitingList");
+    const results = getWaitingList.all();
+    res.json(results);
+    db.close();
+});
+// Insert a new surgery to waiting list
+app.post("/api/waitinglist", (req, res) => {
+    const { ID, PatientID, ReasonForWaiting, DateAdded, PriorityLevel } = req.body;
+    const db = new better_sqlite3_1.default("database.sqlite");
+    const insertSurgery = db.prepare(`INSERT INTO WaitingList (ID, PatientID, ReasonForWaiting, 
+        DateAdded, PriorityLevel) VALUES (?, ?, ?, ?, ?)`);
+    const results = insertSurgery.run(ID, PatientID, ReasonForWaiting, DateAdded, PriorityLevel);
+    res.status(201).json({
+        msg: "Surgery added succesfully",
+        data: results,
+    });
     db.close();
 });
 app.listen(port, () => console.log(`This server is running at port ${port}`));

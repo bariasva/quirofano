@@ -1,11 +1,12 @@
 import Database from "better-sqlite3";
 
 const db = new Database("./database.sqlite");
+
 db.exec(`
   CREATE TABLE IF NOT EXISTS Surgery (
     SurgeryID INTEGER PRIMARY KEY AUTOINCREMENT,
-    PatientID TEXT NOT NULL,
-    SurgeonID TEXT NOT NULL,
+    PatientName TEXT NOT NULL,
+    SurgeonName TEXT NOT NULL,
     StaffList TEXT,
     StartTime DATETIME,
     EndTime DATETIME,
