@@ -45,159 +45,98 @@
     </section>
     <!-- campo nombre del paciente -->
     <section class="bg-light text-dark p-5 text-left">
-      <div class="form-container">
+      <div class="container">
+        <div class="row text-center">
+          <h2>Registro de Cirugia</h2>
+        </div>
+        <br>
         <form class="row g-3 was-validated" id="dataForm">
-          <div class="col-md-12">
-            <h4>Nombre del Paciente</h4>
-            <input
-              type="text"
-              class="form-control"
-              name="PatientName"
-              required
-            />
-          </div>
+          <div class="col-md-3">
+            <!-- Nombre paciente-->
+            <label for="PatientName">Nombre del Paciente</label>
+            <input type="text" class="form-control" name="PatientName" required/>
+            <br>
 
-          <div class="col-md-12">
-            <h4>Medico cabecera</h4>
-            <select
-              class="form-select"
-              name="SurgeonName"
-              required
-              aria-label="select example"
-            >
+            <!--Medico-->
+            <label for="SurgeonName">Medico Cabecera</label>
+            <select class="form-select" name="SurgeonName" required aria-label="select example">
               <option value="">Seleccione el Médico Cabecera</option>
               <option value="Dr. Emilio Paredes">Dr. Emilio Paredes</option>
               <option value="Dra. Sofia Morgana">Dra. Sofia Morgana</option>
               <option value="Dr. Julian Fernández">Dr. Julian Fernández</option>
-              <option value="Dra. Guillermina Smith">
-                Dra. Guillermina Smith
-              </option>
+              <option value="Dra. Guillermina Smith">Dra. Guillermina Smith</option>
               <option value="Dr. Ezequiel Santana">Dr. Ezequiel Santana</option>
             </select>
-          </div>
-          <div class="col-md-12">
-            <h4>Status de cirugía</h4>
-            <select
-              class="form-select"
-              name="Status"
-              required
-              aria-label="select example"
-            >
+            <br>
+
+            <!-- status -->
+            <label for="Status">Status de Cirugía</label>
+            <select class="form-select" name="Status" required aria-label="select example">
               <option value="">Seleccione el status</option>
               <option value="Scheduled">Programada</option>
               <option value="In Progress">En progreso</option>
               <option value="Completed">Completada</option>
               <option value="Cancelled">Cancelada</option>
             </select>
-          </div>
+            <br>
 
-          <div class="col-md-12">
-            <h4>Tipo de Cirugía</h4>
-            <select
-              class="form-select"
-              name="TypeOfSurgery"
-              required
-              aria-label="select example"
-            >
+            <!-- Tipo de Cirugia -->
+            <label for="TypeOfSurgery"> Tipo de Cirugía</label>
+            <select class="form-select" name="TypeOfSurgery" required aria-label="select example">
               <option value="">Seleccione el Tipo de Cirugía</option>
               <option value="Cirugía Mayor">Cirugía Mayor</option>
               <option value="Cirugía Menor">Cirugía Menor</option>
               <option value="Cirugía Electiva">Cirugía Electiva</option>
-              <option value="Cirugía de Emergencia">
-                Cirugía de Emergencia
-              </option>
+              <option value="Cirugía de Emergencia">Cirugía de Emergencia</option>
             </select>
-          </div>
+            <br>
 
-          <div class="col-md-12">
-            <h4>Anestesia</h4>
-            <select
-              class="form-select"
-              name="StaffList"
-              aria-label="select example"
-              required
-            >
+            <!-- Anestesia -->
+            <label for="StaffList">Anestesista</label>
+            <select class="form-select" name="StaffList" aria-label="select example" required>
               <option value="">Seleccione Anestesiólogo</option>
               <option value="Manuel Galva">Manuel Galva (Anestesia)</option>
               <option value="Rosa Duarte">Rosa Duarte (Anestesia)</option>
             </select>
-          </div>
+            <br>
 
-          <div class="col-md-12">
-            <h4>Circulante</h4>
-            <select
-              class="form-select"
-              name="circulante"
-              aria-label="select example"
-              required
-            >
+            <!-- Circulante -->
+             <label for="circulante">Circulante</label>
+            <select class="form-select" name="circulante" aria-label="select example" required>
               <option value="">Seleccione Circulante</option>
-              <option value="Julio Guerrero">
-                Julio Guerrero (Circulante)
-              </option>
-              <option value="Sabrina Iglesias">
-                Sabrina Iglesias (Circulante)
-              </option>
+              <option value="Julio Guerrero">Julio Guerrero (Circulante)</option>
+              <option value="Sabrina Iglesias">Sabrina Iglesias (Circulante)</option>
             </select>
-          </div>
+            <br>
 
-          <div class="col-md-12">
-            <h4>Instrumentista</h4>
-            <select
-              class="form-select"
-              name="instrumentista"
-              aria-label="select example"
-              required
-            >
+            <!-- Instrumentista -->
+            <label for="instrumentista"> Instrumentista</label>
+            <select class="form-select" name="instrumentista" aria-label="select example" required>
               <option value="">Seleccione Instrumentista</option>
-              <option value="Edwin Bautista">
-                Edwin Bautista (Instrumentista)
-              </option>
+              <option value="Edwin Bautista">Edwin Bautista (Instrumentista)</option>
               <option value="María Pérez">María Pérez (Instrumentista)</option>
             </select>
-          </div>
+            <br>
 
-          <div class="col-md-12">
-            <h4>Tiempo de Cirugía</h4>
+            <!-- Tiempo De Cirugia-->
+            <h5>Cirugia</h5>
             <label for="appointment-date">Fecha de Cirugía</label>
-            <input
-              type="date"
-              id="appointment-date"
-              name="appointment-date"
-              class="form-control"
-              required
-            />
-            <br />
+            <input type="date" id="appointment-date" name="appointment-date" class="form-control" required/>
+            <br/>
 
             <label for="start-time">Hora de inicio</label>
-            <input
-              type="time"
-              id="start-time"
-              name="StartTime"
-              class="form-control"
-              required
-            />
-            <br />
+            <input type="time" id="start-time" name="StartTime" class="form-control" required/>
+            <br/>
 
             <label for="end-time">Hora de salida</label>
-            <input
-              type="time"
-              id="end-time"
-              name="EndTime"
-              class="form-control"
-              required
-            />
-          </div>
+            <input type="time" id="end-time" name="EndTime" class="form-control" required/>
+            <br>
 
-          <div class="col-md-12">
-            <button
-              type="submit"
-              class="btn btn-outline-primary col-md-6"
-              style="margin-left: 25%"
-            >
-              Enviar
-            </button>
-            <h2>All Data</h2>
+            <!-- ENVIAR -->
+            <button type="submit" class="btn btn-outline-primary col-12">Enviar</button>
+          </div>
+          <div class="col-md-9 ">
+            <br>
             <table id="dataTable" border="1" class="table">
               <thead>
                 <tr>
@@ -215,10 +154,8 @@
               </tbody>
             </table>
           </div>
-
-          
         </form>
-      </div>
+      </div>       
     </section>
 
     <script src="/dist/index.js"></script>
