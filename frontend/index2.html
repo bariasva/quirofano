@@ -43,26 +43,20 @@
     </section>
     <!-- campo nombre del paciente -->
     <section class="bg-light text-dark p-5 text-left">
-      <div class="form-container">
+      <div class="container">
+        <div class="row text-center">
+          <h2>Registro de Cirugia</h2>
+        </div>
+        <br>
         <form class="row g-3 was-validated" id="dataForm">
-          <div class="col-md-12">
-            <h4>Nombre del Paciente</h4>
-            <input
-              type="text"
-              class="form-control"
-              name="PatientName"
-              required
-            />
-          </div>
-
-          <div class="col-md-12">
-            <h4>Razón de Espera</h4>
-            <select
-              class="form-select"
-              name="ReasonForWaiting"
-              required
-              aria-label="select example"
-            >
+          <div class="col-md-3">
+            <!-- Nombre Paciente -->
+            <label for="PatientName"><b>Nombre del Paciente</b></label>
+            <input type="text" class="form-control" name="PatientName" required/>
+            <br>
+            <!-- ESPERA -->
+            <label for="ReasonForWaiting"><b>Razon de Espera</b></label>
+            <select class="form-select" name="ReasonForWaiting" required aria-label="select example">
               <option value="">Seleccione razon de espera</option>
               <option value="Falta Donante">Falta Donante</option>
               <option value="Espera Aprobación del Seguro">Espera Aprobación del Seguro</option>
@@ -70,43 +64,29 @@
               <option value="Paciente no disponible">Paciente no disponible</option>
               <option value="Documentación Incompleta">Documentación Incompleta</option>
             </select>
-          </div>
+            <br>
 
-          <div class="col-md-12">
-            
-            <label for="appointment-date"><h4>Fecha de Registro</h4></label>
-            <input
-              type="date"
-              id="appointment-date"
-              name="DateAdded"
-              class="form-control"
-              required
-            />
-          </div>
-          <div class="col-md-12">
-            <h4>Prioridad</h4>
-            <select
-              class="form-select"
-              name="PriorityLevel"
-              required
-              aria-label="select example"
-            >
+            <!-- FECHA REGISTRO-->
+            <label for="appointment-date"><b>Fecha de Registro</b></label>
+            <input type="date" id="appointment-date" name="DateAdded" class="form-control" required/>
+            <br>
+
+            <!-- PRIORIDAD -->
+            <label for="PriorityLevel"><b>Prioridad</b></label>
+            <select class="form-select" name="PriorityLevel" required aria-label="select example">
               <option value="">Seleccione la Prioridad</option>
               <option value="Low">Baja</option>
               <option value="Medium">Media</option>
               <option value="High">Alta</option>
             </select>
-          </div>       
+            <br>
 
-          <div class="col-md-12">
-            <button
-              type="submit"
-              class="btn btn-outline-primary col-md-6"
-              style="margin-left: 25%"
-            >
-              Enviar
-            </button>
-            <h2>All Data</h2>
+            <!-- ENVIAR -->
+            <button type="submit" class="btn btn-outline-primary col-md-12">Enviar</button>
+          </div>    
+
+          <div class="col-md-9">
+            <br>
             <table id="dataTable" border="1" class="table">
               <thead>
                 <tr>
