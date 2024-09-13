@@ -27,8 +27,9 @@ app.get("/api/cirugia", (req, res) => {
 // Post cirugia
 app.post("/api/cirugia", (req, res) => {
     // Codigo para agregar una cirugia
-    const { SurgeryID, PatientName, SurgeonName, StaffList, StartTime, EndTime, TypeOfSurgery, Status, } = req.body;
+    const { SurgeryID, PatientName, SurgeonName, StaffList1, StaffList2, StaffList3, StartTime, EndTime, TypeOfSurgery, Status, } = req.body;
     const db = new better_sqlite3_1.default("database.sqlite");
+    const StaffList = `${StaffList1}, ${StaffList2}, ${StaffList3}`;
     const addSurgery = db.prepare(`INSERT INTO Surgery (SurgeryID, PatientName, SurgeonName, StaffList,
         StartTime, EndTime, TypeOfSurgery, Status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`);
     const results = addSurgery.run(SurgeryID, PatientName, SurgeonName, StaffList, StartTime, EndTime, TypeOfSurgery, Status);

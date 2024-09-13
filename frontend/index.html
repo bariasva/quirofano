@@ -49,94 +49,159 @@
         <div class="row text-center">
           <h2>Registro de Cirugia</h2>
         </div>
-        <br>
+        <br />
         <form class="row g-3 was-validated form-container" id="dataForm">
           <div class="col-md-3">
             <!-- Nombre paciente-->
             <label for="PatientName"><b>Nombre del Paciente</b></label>
-            <input type="text" class="form-control" name="PatientName" required/>
-            <br>
+            <input
+              type="text"
+              class="form-control"
+              name="PatientName"
+              required
+            />
+            <br />
 
             <!--Medico-->
             <label for="SurgeonName"><b>Medico Cabecera</b></label>
-            <select class="form-select" name="SurgeonName" required aria-label="select example">
+            <select
+              class="form-select"
+              name="SurgeonName"
+              required
+              aria-label="select example"
+            >
               <option value="">Seleccione el Médico Cabecera</option>
               <option value="Dr. Emilio Paredes">Dr. Emilio Paredes</option>
               <option value="Dra. Sofia Morgana">Dra. Sofia Morgana</option>
               <option value="Dr. Julian Fernández">Dr. Julian Fernández</option>
-              <option value="Dra. Guillermina Smith">Dra. Guillermina Smith</option>
+              <option value="Dra. Guillermina Smith">
+                Dra. Guillermina Smith
+              </option>
               <option value="Dr. Ezequiel Santana">Dr. Ezequiel Santana</option>
             </select>
-            <br>
+            <br />
 
             <!-- status -->
             <label for="Status"><b>Status de Cirugía</b></label>
-            <select class="form-select" name="Status" required aria-label="select example">
+            <select
+              class="form-select"
+              name="Status"
+              required
+              aria-label="select example"
+            >
               <option value="">Seleccione el status</option>
               <option value="Scheduled">Programada</option>
               <option value="In Progress">En progreso</option>
               <option value="Completed">Completada</option>
               <option value="Cancelled">Cancelada</option>
             </select>
-            <br>
+            <br />
 
             <!-- Tipo de Cirugia -->
             <label for="TypeOfSurgery"><b>Tipo de Cirugía</b></label>
-            <select class="form-select" name="TypeOfSurgery" required aria-label="select example">
+            <select
+              class="form-select"
+              name="TypeOfSurgery"
+              required
+              aria-label="select example"
+            >
               <option value="">Seleccione el Tipo de Cirugía</option>
               <option value="Cirugía Mayor">Cirugía Mayor</option>
               <option value="Cirugía Menor">Cirugía Menor</option>
               <option value="Cirugía Electiva">Cirugía Electiva</option>
-              <option value="Cirugía de Emergencia">Cirugía de Emergencia</option>
+              <option value="Cirugía de Emergencia">
+                Cirugía de Emergencia
+              </option>
             </select>
-            <br>
+            <br />
 
             <!-- Anestesia -->
             <label for="StaffList"><b>Anestesista</b></label>
-            <select class="form-select" name="StaffList" aria-label="select example" required>
+            <select
+              class="form-select"
+              name="StaffList1"
+              aria-label="select example"
+              required
+            >
               <option value="">Seleccione Anestesiólogo</option>
               <option value="Manuel Galva">Manuel Galva (Anestesia)</option>
               <option value="Rosa Duarte">Rosa Duarte (Anestesia)</option>
             </select>
-            <br>
+            <br />
 
             <!-- Circulante -->
-             <label for="circulante"><b>Circulante</b></label>
-            <select class="form-select" name="circulante" aria-label="select example" required>
+            <label for="circulante"><b>Circulante</b></label>
+            <select
+              class="form-select"
+              name="StaffList2"
+              aria-label="select example"
+              required
+            >
               <option value="">Seleccione Circulante</option>
-              <option value="Julio Guerrero">Julio Guerrero (Circulante)</option>
-              <option value="Sabrina Iglesias">Sabrina Iglesias (Circulante)</option>
+              <option value="Julio Guerrero">
+                Julio Guerrero (Circulante)
+              </option>
+              <option value="Sabrina Iglesias">
+                Sabrina Iglesias (Circulante)
+              </option>
             </select>
-            <br>
+            <br />
 
             <!-- Instrumentista -->
             <label for="instrumentista"><b> Instrumentista</b></label>
-            <select class="form-select" name="instrumentista" aria-label="select example" required>
+            <select
+              class="form-select"
+              name="StaffList3"
+              aria-label="select example"
+              required
+            >
               <option value="">Seleccione Instrumentista</option>
-              <option value="Edwin Bautista">Edwin Bautista (Instrumentista)</option>
+              <option value="Edwin Bautista">
+                Edwin Bautista (Instrumentista)
+              </option>
               <option value="María Pérez">María Pérez (Instrumentista)</option>
             </select>
-            <br>
+            <br />
 
             <!-- Tiempo De Cirugia-->
             <h5>Cirugia</h5>
             <label for="appointment-date"><b>Fecha de Cirugía</b></label>
-            <input type="date" id="appointment-date" name="appointment-date" class="form-control" required/>
-            <br/>
+            <input
+              type="date"
+              id="appointment-date"
+              name="appointment-date"
+              class="form-control"
+              required
+            />
+            <br />
 
             <label for="start-time"><b>Hora de inicio</b></label>
-            <input type="time" id="start-time" name="StartTime" class="form-control" required/>
-            <br/>
+            <input
+              type="time"
+              id="start-time"
+              name="StartTime"
+              class="form-control"
+              required
+            />
+            <br />
 
             <label for="end-time"><b>Hora de salida</b></label>
-            <input type="time" id="end-time" name="EndTime" class="form-control" required/>
-            <br>
+            <input
+              type="time"
+              id="end-time"
+              name="EndTime"
+              class="form-control"
+              required
+            />
+            <br />
 
             <!-- ENVIAR -->
-            <button type="submit" class="btn btn-outline-primary col-12">Enviar</button>
+            <button type="submit" class="btn btn-outline-primary col-12">
+              Enviar
+            </button>
           </div>
-          <div class="col-md-9 ">
-            <br>
+          <div class="col-md-9">
+            <br />
             <table id="dataTable" border="1" class="table">
               <thead>
                 <tr>
@@ -155,49 +220,49 @@
             </table>
           </div>
         </form>
-      </div>       
+      </div>
     </section>
 
     <script src="/dist/index.js"></script>
-          <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-          <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-          <script>
-            document
-              .getElementById("dataForm")
-              .addEventListener("submit", async (event) => {
-                event.preventDefault();
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document
+        .getElementById("dataForm")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
 
-                const formData = new FormData(event.target);
-                const data = Object.fromEntries(formData.entries());
+          const formData = new FormData(event.target);
+          const data = Object.fromEntries(formData.entries());
 
-                // Insert data via POST request
-                const response = await fetch("/api/cirugia", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(data),
-                });
+          // Insert data via POST request
+          const response = await fetch("/api/cirugia", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
 
-                if (response.ok) {
-                  event.target.reset(); // Clear the form after successful submission
-                  loadTableData(); // Load the updated table data
-                }
-              });
+          if (response.ok) {
+            event.target.reset(); // Clear the form after successful submission
+            loadTableData(); // Load the updated table data
+          }
+        });
 
-            async function loadTableData() {
-              const response = await fetch("/api/cirugia");
-              const data = await response.json();
+      async function loadTableData() {
+        const response = await fetch("/api/cirugia");
+        const data = await response.json();
 
-              const tableBody = document.querySelector("#dataTable tbody");
-              tableBody.innerHTML = ""; // Clear existing rows
+        const tableBody = document.querySelector("#dataTable tbody");
+        tableBody.innerHTML = ""; // Clear existing rows
 
-              data.forEach((row) => {
-                const tr = document.createElement("tr");
-                tr.innerHTML = `<td>${row.PatientName}</td><td>${row.SurgeonName}</td><td>${row.StaffList}</td><td>${row.StartTime}</td><td>${row.EndTime}</td><td>${row.TypeOfSurgery}</td><td>${row.Status}</td>`;
-                tableBody.appendChild(tr);
-              });
-            }
-            loadTableData();
-            window.onload = loadTableData;
-      </script>
+        data.forEach((row) => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `<td>${row.PatientName}</td><td>${row.SurgeonName}</td><td>${row.StaffList}</td><td>${row.StartTime}</td><td>${row.EndTime}</td><td>${row.TypeOfSurgery}</td><td>${row.Status}</td>`;
+          tableBody.appendChild(tr);
+        });
+      }
+      loadTableData();
+      window.onload = loadTableData;
+    </script>
   </body>
 </html>
