@@ -1,40 +1,11 @@
 .form-container {
-    max-width: 800px; /* Ajusta el ancho máximo del contenedor */
-    margin: 10 auto; /* Centra el contenedor horizontalmente */
+
     padding: 20px; /* Espacio interno */
-    border-radius: 30px; /* Bordes redondeados */
+    border-radius: 15px; /* Bordes redondeados */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
-    background-color: #ffffff; /* Fondo blanco */
+    background-color: #fff; /* Fondo blanco */
 }
 
-#nav {
-    background-color: #007bff; /* Color azul suave */
-    padding: 10px 30px;
-    border-radius: 25px; /* Bordes redondeados */
-    width: fit-content; /* Ajuste automático del ancho al contenido */
-    margin: 20px auto; /* Centra el navbar vertical y horizontalmente */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para destacar */
-}
-
-.nav-link {
-    font-weight: 500;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 10px;
-    transition: background-color 0.3s ease-in-out;
-    margin: 0 100px;
-}
-
-.nav-link:hover {
-    background-color: #0056b3;
-}
-
-ul.navbar-nav {
-    list-style: none;
-    padding-left: 0;
-    display: flex;
-    gap: 20px;
-}
 .bg-primary-custom {
     background-color: #0d6efd; /* Example primary color, adjust as needed */
 }
@@ -43,6 +14,5 @@ ul.navbar-nav {
     width: auto; /* Maintain aspect ratio */
 }
 .navbar-nav .nav-link {
-    font-size: 1.20rem; /* Adjust the size as needed */
+    font-size: 1.25rem; /* Adjust the size as needed */
   }
-
